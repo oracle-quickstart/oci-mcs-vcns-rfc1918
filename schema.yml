@@ -1,0 +1,144 @@
+---
+description: Deploy OMCS RFC1918 Blueprint
+schemaVersion: 1.1.0
+title: Deploy OMCS RFC1918 Blueprint
+version: "2020083101"
+variableGroups:
+  - title: Hidden
+    variables:
+      - compartment_ocid
+      - region
+      - tenancy_ocid
+    visible: false
+  - title: General Networking
+    variables:
+      - vcn_compartment_ocid
+      - vcn_application_enable
+      - vcn_compliance_enable
+      - vcn_management_enable
+      - vcn_transit_enable
+    visible: true
+  - title: Application VCN
+    variables:
+      - vcn_application_cidr
+      - vcn_application_infrastructure_cidr
+      - vcn_application_lbaas_private_cidr
+      - vcn_application_lbaas_public_cidr
+      - vcn_application_nonproduction_db_cidr
+      - vcn_application_nonproduction_mt_cidr
+      - vcn_application_production_db_cidr
+      - vcn_application_production_mt_cidr
+    visible: ${vcn_application_enable}
+  - title: Compliance VCN
+    variables:
+      - vcn_compliance_cidr
+      - vcn_compliance_infrastructure_cidr
+      - vcn_compliance_lbaas_private_cidr
+      - vcn_compliance_lbaas_public_cidr
+      - vcn_compliance_nonproduction_db_cidr
+      - vcn_compliance_nonproduction_mt_cidr
+      - vcn_compliance_production_db_cidr
+      - vcn_compliance_production_mt_cidr
+    visible: ${vcn_compliance_enable}
+  - title: Management VCN
+    variables:
+      - vcn_management_cidr
+      - vcn_management_infrastructure_cidr
+      - vcn_management_lbaas_private_cidr
+      - vcn_management_lbaas_public_cidr
+    visible: ${vcn_management_enable}
+  - title: Transit VCN
+    variables:
+      - vcn_transit_cidr
+    visible: ${vcn_transit_enable}
+variables:
+  compartment_ocid:
+    required: true
+    title: Compartment the stack is in
+    type: oci:identity:compartment:id
+  region:
+    required: true
+    title: Region the stack is in
+    type: oci:identity:region:name
+  tenancy_ocid:
+    required: true
+    title: Tenancy the stack is in
+    type: string
+  vcn_compartment_ocid:
+    required: true
+    title: Compartment for VCN
+    type: oci:identity:compartment:id
+    visible: ${vcn_compartment_existing}
+  vcn_application_enable:
+    required: true
+    title: Enable Application VCN?
+    type: boolean
+  vcn_application_cidr:
+    required: true
+    title: CIDR for VCN
+    type: string
+  vcn_application_infrastructure_cidr:
+    required: true
+    title: CIDR for Infrastructure Subnet
+    type: string
+  vcn_application_nonproduction_db_cidr:
+    required: true
+    title: CIDR for Non Production DB Subnet
+    type: string
+  vcn_application_nonproduction_mt_cidr:
+    required: true
+    title: CIDR for Non Production MT Subnet
+    type: string
+  vcn_application_production_db_cidr:
+    required: true
+    title: CIDR for Production DB Subnet
+    type: string
+  vcn_application_production_mt_cidr:
+    required: true
+    title: CIDR for Production MT Subnet
+    type: string
+  vcn_compliance_enable:
+    required: true
+    title: Enable Compliance VCN?
+    type: boolean
+  vcn_compliance_cidr:
+    required: true
+    title: CIDR for VCN
+    type: string
+  vcn_compliance_infrastructure_cidr:
+    required: true
+    title: CIDR for Infrastructure Subnet
+    type: string
+  vcn_compliance_nonproduction_db_cidr:
+    required: true
+    title: CIDR for Non Production DB Subnet
+    type: string
+  vcn_compliance_nonproduction_mt_cidr:
+    required: true
+    title: CIDR for Non Production MT Subnet
+    type: string
+  vcn_compliance_production_db_cidr:
+    required: true
+    title: CIDR for Production DB Subnet
+    type: string
+  vcn_compliance_production_mt_cidr:
+    required: true
+    title: CIDR for Production MT Subnet
+    type: string
+  vcn_management_enable:
+    required: true
+    title: Enable Management VCN?
+    type: boolean
+  vcn_management_cidr:
+    required: true
+    title: CIDR for the Management VCN
+    type: string
+  vcn_transit_enable:
+    required: true
+    title: Enable Transit VCN?
+    type: boolean
+  vcn_transit_cidr:
+    required: true
+    title: CIDR for the Transit VCN
+    type: string
+...
