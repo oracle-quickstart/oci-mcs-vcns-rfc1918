@@ -81,6 +81,14 @@ variables:
     required: true
     title: CIDR for Infrastructure Subnet
     type: string
+  vcn_application_lbaas_private_cidr:
+    required: true
+    title: CIDR for Private LBaaS Subnet
+    type: string
+  vcn_application_lbaas_public_cidr:
+    required: true
+    title: CIDR for Public LBaaS Subnet
+    type: string
   vcn_application_nonproduction_db_cidr:
     required: true
     title: CIDR for Non Production DB Subnet
@@ -109,6 +117,14 @@ variables:
     required: true
     title: CIDR for Infrastructure Subnet
     type: string
+  vcn_compliance_lbaas_private_cidr:
+    required: true
+    title: CIDR for Private LBaaS Subnet
+    type: string
+  vcn_compliance_lbaas_public_cidr:
+    required: true
+    title: CIDR for Public LBaaS Subnet
+    type: string
   vcn_compliance_nonproduction_db_cidr:
     required: true
     title: CIDR for Non Production DB Subnet
@@ -132,6 +148,18 @@ variables:
   vcn_management_cidr:
     required: true
     title: CIDR for the Management VCN
+    type: string
+  vcn_management_infrastructure_cidr:
+    required: true
+    title: CIDR for the Infrastructure Subnet
+    type: string
+  vcn_management_lbaas_private_cidr:
+    required: true
+    title: CIDR for the Private LBaaS Subnet
+    type: string
+  vcn_management_lbaas_public_cidr:
+    required: true
+    title: CIDR for the Public LBaaS Subnet
     type: string
   vcn_transit_enable:
     required: true
