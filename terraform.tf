@@ -1,5 +1,4 @@
 terraform {
-  required_version = ">= 0.13"
   required_providers {
     oci = {
       source  = "hashicorp/oci"
@@ -10,4 +9,5 @@ terraform {
       version = ">= 2.3.0"
     }
   }
+  required_version = ">= 0.13"
 }
