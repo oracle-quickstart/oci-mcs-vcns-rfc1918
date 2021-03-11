@@ -2,7 +2,7 @@ terraform {
   required_providers {
     oci = {
       source  = "hashicorp/oci"
-      version = ">= 4.7.0"
+      version = ">= 4.17.0"
     }
     random = {
       source  = "hashicorp/random"
